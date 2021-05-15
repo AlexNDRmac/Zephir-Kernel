@@ -18,5 +18,15 @@ list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
 include(BuildOptions)
 
+find_package(PHP REQUIRED)
+
 # Add definition for the libraries.
-add_subdirectory(ZendEngine3)
+file(GLOB ZEPHIR_KERNEL_SRC_FILES ${CMAKE_CURRENT_SOURCE_DIR}/kernel/*.c)
+
+add_library(zephir_kernel SHARED ${ZEPHIR_KERNEL_SRC_FILES})
+
+target_include_directories(
+        zephir_kernel
+        PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+                $<BUILD_INTERFACE:${PHP_SRC_INCLUDE_DIR}>
+                $<BUILD_INTERFACE:${PHP_SRC_INCLUDE_DIR}/main>)
