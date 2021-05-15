@@ -17,3 +17,6 @@ list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 ##############################################
 
 include(BuildOptions)
+
+# Add definition for the libraries.
+add_subdirectory(ZendEngine3)
