@@ -11,3 +11,9 @@ endif()
 
 # Provide path for additional cmake scripts
 list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
+
+##############################################
+# Project includes
+##############################################
+
+include(BuildOptions)
